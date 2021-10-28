@@ -1,0 +1,35 @@
+@font-face{
+    font-family: Gilroy-Bold;
+    font-style: normal;
+    src: url('../fonts/Gilroy-Bold.ttf')
+}
+@font-face{
+    font-family: Gilroy-Medium;
+    font-style: normal;
+    src: url('../fonts/Gilroy-Medium.ttf')
+}
+@font-face{
+    font-family: Ginger-Regular;
+    font-style: normal;
+    src: url('../fonts/Ginger-Regular.otf') format("opentype"), url('../fonts/Ginger-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: Gilroy-Medium;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin: 0;
+  }
+
+  .main-button{
+    background: #FB6C23;
+    color: #fff;
+    font-family: Gilroy-Bold;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 16px;
+  }
