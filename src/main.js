@@ -13,7 +13,7 @@ app.use(VueAxios, axios);
 app.mount('#app');
 
 if(process.env.NODE_ENV != 'production'){
- app.config.globalProperties.$careerURL = "https://careers.getshitdone.in"
+ app.config.globalProperties.$careerURL = "https://jobs.getshitdone.in"
 }else{
-  app.config.globalProperties.$careerURL = "https://careers.hypd.store"
+  app.config.globalProperties.$careerURL = "https://jobs.hypd.store"
 }
