@@ -166,6 +166,7 @@ export default {
     },
   },
   created() {
+    scrollTo(0, 0);
     if (this.$route.params.id) {
       this.axios({
         method: "GET",
