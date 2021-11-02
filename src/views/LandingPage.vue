@@ -4,8 +4,7 @@
       <div class="first-section-column">
         <div class="main-title main-title-white">Discover Your Best.</div>
         <div class="content white-content" style="max-width: 480px; margin-top: 20px">
-          We will tell them that candidates will discover their best working with Hypd.
-          Reference site about Lorem Ipsum, giving information on its origins.
+          At HYPD, you will find your best, grow your best, and redefine your own worth.
         </div>
         <button class="main-button" @click="scrollToJobs">Apply Now</button>
       </div>
@@ -25,37 +24,46 @@
           <div><img src="../assets/img/group.svg" alt="" /></div>
           <div class="main-title second-title" style="margin-top: 12px">Who we are</div>
           <div class="content">
-            We are a group a team, a family that spans the globe and who strive to
-            innovate, create and disrupt.
+            A family spanning the globe, who continuously strive to innovate, create, and
+            disrupt!
           </div>
         </div>
         <div>
           <div><img src="../assets/img/price-tag.svg" alt="" /></div>
           <div class="main-title second-title" style="margin-top: 12px">What we do</div>
           <div class="content">
-            We help brands understand, identify, engage and acquire their customers.
+            We are disrupting the Creators Economy, while building for new age Brands,
+            Creators and Consumers, all at the same time!. Not reinventing the wheel, just
+            mimicking human behavior digitally by enabling our “Watch It, Like It, Buy It”
+            formula!
           </div>
         </div>
         <div>
           <div><img src="../assets/img/technology.svg" alt="" /></div>
           <div class="main-title second-title" style="margin-top: 12px">How we do it</div>
           <div class="content">
-            Our technology platform and exclusive access to mobile intelligence helps
-            brands discover the ever-evolving needs of consumers.
+            By creating a platform charged with intelligence that provides exclusive
+            access to brands, creators and consumers to engage with one another and
+            understand their ever-evolving needs.
           </div>
         </div>
       </div>
     </section>
     <section>
-      <div style="margin: 80px 0">
+      <div style="margin: 80px 0 50px 0">
         <div class="main-title">Why Hypd?</div>
+
+        <div class="content" style="margin-top: 18px">
+          If you want to carve your own space, believe in working hard & partying harder,
+          this is your place to be!
+        </div>
       </div>
       <div class="three-columns-row three-columns-row-left">
         <div>
           <div class="indicator-with-content">
             <div class="indicator orange-indicator">01</div>
             <div class="second-title main-title">
-              Put a group of incredibly passionate, driven individuals together.
+              Complete ownership and freedom of your position, and ideas!
             </div>
           </div>
         </div>
@@ -63,8 +71,8 @@
           <div class="indicator-with-content">
             <div class="indicator green-indicator">02</div>
             <div class="second-title main-title">
-              Give them the complete freedom to chase down their goals in a complete
-              uninhibited manner.
+              Be in a culture where you will meet like-minded people who help achieve each
+              other’s goals and evil plans to take over the world.
             </div>
           </div>
         </div>
@@ -72,8 +80,8 @@
           <div class="indicator-with-content">
             <div class="indicator yellow-indicator">03</div>
             <div class="second-title main-title">
-              You will have HYPD. The HYPD manifesto is crowd sourced from these very
-              people.
+              At HYPD, you’ll grow slightly slower than the speed of light. But we’re
+              destined to speed up sooner than ever!
             </div>
           </div>
         </div>
@@ -117,16 +125,16 @@
     <section class="grayed" id="jobs-section">
       <div class="main-title" style="margin-top: 48px">Want to join us?</div>
       <div class="content" style="margin-top: 12px">
-        Pllinear send a cover letter and resume to
+        Please send a cover letter and resume to
         <span class="mail-to"><a href="mailto:careers@hypd.in"> jobs@hypd.in </a></span>
         or apply at the links below.
       </div>
-      <div class="jobs-wrapper">
+      <div class="jobs-wrapper" v-if="jobs && jobs.length > 0">
         <div class="job-category-container" v-for="(category, i) in jobs" :key="i">
           <div class="job-category-title" @click="expandJob(i)">
             <div class="job-category second-title">
               {{ category.name }}
-              <div class="job-count-indicator">{{ category.jobs.length }}</div>
+              <div class="job-count-indicator">{{ category.job_profiles.length }}</div>
             </div>
             <div class="caret" :class="{ expanded_caret: active_job.includes(i) }">
               <img src="../assets/img/arrow.svg" alt="" />
@@ -136,12 +144,12 @@
             class="jobs-section"
             :class="{ expanded_jobs_section: active_job.includes(i) }"
           >
-            <div class="job-container" v-for="(job, j) in category.jobs" :key="j">
+            <div class="job-container" v-for="(job, j) in category.job_profiles" :key="j">
               <div>
-                <div class="job-title">{{ job.title }}</div>
+                <div class="job-title">{{ job.name }}</div>
                 <div class="job-description">{{ job.description }}</div>
               </div>
-              <router-link to="/" class="apply-button"
+              <router-link :to="'/job/' + job.id" class="apply-button"
                 >Apply now <img src="../assets/img/arrow-right.png" alt=""
               /></router-link>
             </div>
@@ -160,34 +168,7 @@ export default {
       one: false,
       two: false,
       three: false,
-      jobs: [
-        {
-          name: "Comapny Success",
-          jobs: [
-            {
-              title: "Title",
-              description: "Description",
-            },
-            {
-              title: "Title 2",
-              description: "Description 2",
-            },
-          ],
-        },
-        {
-          name: "Tech",
-          jobs: [
-            {
-              title: "Title 1",
-              description: "Description",
-            },
-            {
-              title: "Title 2",
-              description: "Description 2",
-            },
-          ],
-        },
-      ],
+      jobs: [],
       active_job: [],
     };
   },
@@ -252,6 +233,28 @@ export default {
     showFirst() {
       this.slideRight();
     },
+    fetchJobs() {
+      this.axios({
+        method: "GET",
+        url: this.$careerURL + "/api/careers",
+        withCredentials: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          this.jobs = response.data.payload;
+        })
+        .catch((error) => console.log(error));
+    },
+  },
+  created() {
+    this.fetchJobs();
+    if (this.$route.query.jobs) {
+      setTimeout(() => {
+        this.scrollToJobs();
+      }, 300);
+    }
   },
 };
 </script>
@@ -553,7 +556,7 @@ a img {
 
   .three-columns-row {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-columns: 1fr;
     grid-gap: 68px;
   }
