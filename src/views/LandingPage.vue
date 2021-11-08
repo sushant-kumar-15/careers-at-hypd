@@ -126,7 +126,9 @@
       <div class="main-title" style="margin-top: 48px">Want to join us?</div>
       <div class="content" style="margin-top: 12px">
         Please send a cover letter and resume to
-        <span class="mail-to"><a href="mailto:careers@hypd.in"> jobs@hypd.in </a></span>
+        <span class="mail-to"
+          ><a href="mailto:careers@hypd.in"> careers@hypd.in </a></span
+        >
         or apply at the links below.
       </div>
       <div class="jobs-wrapper" v-if="jobs && jobs.length > 0">
