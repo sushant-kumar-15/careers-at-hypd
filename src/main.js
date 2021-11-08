@@ -12,8 +12,6 @@ app.use(Vue3TouchEvents);
 app.use(VueAxios, axios);
 app.mount('#app');
 
-console.log(process.env.NODE_ENV)
-
 if(process.env.NODE_ENV != 'production'){
  app.config.globalProperties.$careerURL = "https://jobs.getshitdone.in"
 }else{
