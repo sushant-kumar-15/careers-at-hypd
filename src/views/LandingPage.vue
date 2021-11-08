@@ -62,7 +62,7 @@
         <div>
           <div class="indicator-with-content">
             <div class="indicator orange-indicator">01</div>
-            <div class="second-title main-title">
+            <div class="second-title main-title third-title">
               Complete ownership and freedom of your position, and ideas!
             </div>
           </div>
@@ -70,7 +70,7 @@
         <div>
           <div class="indicator-with-content">
             <div class="indicator green-indicator">02</div>
-            <div class="second-title main-title">
+            <div class="second-title main-title third-title">
               Be in a culture where you will meet like-minded people who help achieve each
               other’s goals and evil plans to take over the world.
             </div>
@@ -79,7 +79,7 @@
         <div>
           <div class="indicator-with-content">
             <div class="indicator yellow-indicator">03</div>
-            <div class="second-title main-title">
+            <div class="second-title main-title third-title">
               At HYPD, you’ll grow slightly slower than the speed of light. But we’re
               destined to speed up sooner than ever!
             </div>
@@ -540,6 +540,10 @@ a img {
 .apply-button img {
   height: 10px;
   margin-left: 6px;
+}
+
+.third-title {
+  font-size: 18px;
 }
 @media (min-width: 320px) and (max-width: 480px) {
   .container {
