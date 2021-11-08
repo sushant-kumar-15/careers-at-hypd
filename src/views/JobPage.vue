@@ -322,8 +322,8 @@ input {
   position: absolute;
   left: -50vh;
   top: -50vw;
-  height: 150vh;
-  width: 150vw;
+  height: 200vh;
+  width: 200vw;
   overflow-y: hidden;
   z-index: 2;
 }
