@@ -527,7 +527,7 @@ section {
   padding: 15px;
   align-items: center;
   text-align: left;
-  gap: 80px;
+  gap: 120px;
 }
 
 .job-container:last-of-type {
