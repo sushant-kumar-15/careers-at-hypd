@@ -136,13 +136,24 @@
           <div class="job-category-title" @click="expandJob(i)">
             <div class="job-category second-title">
               {{ category.name }}
-              <div class="job-count-indicator">{{ category.job_profiles.length }}</div>
+              <div
+                class="job-count-indicator"
+                v-if="category.job_profiles && category.job_profiles.length > 0"
+              >
+                {{ category.job_profiles.length }}
+              </div>
+              <div class="job-count-indicator" v-else>0</div>
             </div>
-            <div class="caret" :class="{ expanded_caret: active_job.includes(i) }">
+            <div
+              class="caret"
+              v-if="category.job_profiles && category.job_profiles.length > 0"
+              :class="{ expanded_caret: active_job.includes(i) }"
+            >
               <img src="../assets/img/arrow.svg" alt="" />
             </div>
           </div>
           <div
+            v-if="category.job_profiles && category.job_profiles.length > 0"
             class="jobs-section"
             :class="{ expanded_jobs_section: active_job.includes(i) }"
           >
@@ -516,6 +527,7 @@ section {
   padding: 15px;
   align-items: center;
   text-align: left;
+  gap: 80px;
 }
 
 .job-container:last-of-type {
