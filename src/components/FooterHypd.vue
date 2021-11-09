@@ -43,9 +43,6 @@
           <div class="footer-link footer-text" @click="openAboutUS">About Us</div>
           <div class="footer-link footer-text" @click="toPP">Privacy Policy</div>
           <div class="footer-link footer-text" @click="toTNC">Terms & Conditions</div>
-          <div class="footer-link footer-text hiring" @click="redirectToJobs">
-            We are hiring!
-          </div>
           <!-- <div class="footer-link footer-text">Site feedback</div> -->
         </div>
       </div>
