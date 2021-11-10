@@ -179,11 +179,13 @@ export default {
         .then((response) => {
           let list = response.data.payload;
           for (let i in list) {
-            list[i].job_profiles = list[i].job_profiles.map((obj) => ({
-              ...obj,
-              department: list[i].name,
-            }));
-            this.jobs = [...this.jobs, ...list[i].job_profiles];
+            if (list[i].job_profiles) {
+              list[i].job_profiles = list[i].job_profiles.map((obj) => ({
+                ...obj,
+                department: list[i].name,
+              }));
+              this.jobs = [...this.jobs, ...list[i].job_profiles];
+            }
           }
           let vm = this;
           vm.job = vm.jobs.find((x) => x.id === vm.$route.params.id);
