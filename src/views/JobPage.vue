@@ -268,6 +268,7 @@ input {
   font-family: Gilroy-Bold;
   font-size: 18px;
   width: 80%;
+  border-radius: 0;
 }
 
 .input-wrapper span {
