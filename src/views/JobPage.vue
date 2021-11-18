@@ -358,7 +358,7 @@ input {
   .flex-row {
     flex-direction: column;
     margin: 20px 16px;
-    gap: 60px;
+    gap: 100px;
   }
 
   .left-column,
