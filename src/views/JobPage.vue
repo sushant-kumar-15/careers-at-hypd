@@ -207,6 +207,7 @@ export default {
   display: flex;
   justify-content: space-between;
   min-height: 100vh;
+  gap: 50px;
 }
 .main-title {
   font-family: Gilroy-Bold;
