@@ -17,7 +17,7 @@
         <div class="form-wrapper" id="form-wrapper">
           <div class="main-title second-title">Fill your personal details</div>
           <div class="content">
-            We will require your basic details help us evaluate your application
+            We will require your basic details to help us evaluate your application
           </div>
           <div class="input-wrapper">
             <label for="">Full name*</label>
