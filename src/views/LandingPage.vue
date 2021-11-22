@@ -122,6 +122,21 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <div style="margin: 80px 0 0" class="no-top-margin">
+        <div class="main-title">Life at Hypd</div>
+        <div class="video-container">
+          <video
+            src="https://hypd-assets-prod.s3.ap-south-1.amazonaws.com/assets/public/V3.mp4"
+            controls
+            autoplay
+            muted
+            loop
+          ></video>
+        </div>
+      </div>
+    </section>
     <section class="grayed" id="jobs-section">
       <div class="main-title" style="margin-top: 48px">Want to join us?</div>
       <div class="content" style="margin-top: 12px">
@@ -559,6 +574,17 @@ a img {
 .third-title {
   font-size: 18px;
 }
+
+.video-container {
+  margin: 0 120px;
+  border-radius: 20px;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 30px;
+}
 @media (min-width: 320px) and (max-width: 480px) {
   .container {
     margin: 0;
@@ -598,6 +624,14 @@ a img {
   .jobs-wrapper {
     margin: 20px auto;
     margin-top: 50px;
+  }
+
+  .video-container {
+    margin: 0 20px;
+  }
+
+  .no-top-margin {
+    margin-top: 0 !important;
   }
 }
 </style>
