@@ -17,7 +17,7 @@
         <div class="form-wrapper" id="form-wrapper">
           <div class="main-title second-title">Fill your personal details</div>
           <div class="content">
-            We will require your basic details help us evaluate your application
+            We will require your basic details to help us evaluate your application
           </div>
           <div class="input-wrapper">
             <label for="">Full name*</label>
@@ -179,11 +179,13 @@ export default {
         .then((response) => {
           let list = response.data.payload;
           for (let i in list) {
-            list[i].job_profiles = list[i].job_profiles.map((obj) => ({
-              ...obj,
-              department: list[i].name,
-            }));
-            this.jobs = [...this.jobs, ...list[i].job_profiles];
+            if (list[i].job_profiles) {
+              list[i].job_profiles = list[i].job_profiles.map((obj) => ({
+                ...obj,
+                department: list[i].name,
+              }));
+              this.jobs = [...this.jobs, ...list[i].job_profiles];
+            }
           }
           let vm = this;
           vm.job = vm.jobs.find((x) => x.id === vm.$route.params.id);
@@ -205,6 +207,7 @@ export default {
   display: flex;
   justify-content: space-between;
   min-height: 100vh;
+  gap: 50px;
 }
 .main-title {
   font-family: Gilroy-Bold;
@@ -266,6 +269,7 @@ input {
   font-family: Gilroy-Bold;
   font-size: 18px;
   width: 80%;
+  border-radius: 0;
 }
 
 .input-wrapper span {
@@ -354,7 +358,7 @@ input {
   .flex-row {
     flex-direction: column;
     margin: 20px 16px;
-    gap: 60px;
+    gap: 100px;
   }
 
   .left-column,
