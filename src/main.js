@@ -7,7 +7,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueGtag from "vue-gtag";
 const app = createApp(App);
-Vue.use(VueGtag, {
+app.use(VueGtag, {
   config: { id: "G-G6EP0MZDK9" }
 });
 app.use(router);
