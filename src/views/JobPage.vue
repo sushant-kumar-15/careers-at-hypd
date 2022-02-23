@@ -156,9 +156,13 @@ export default {
         },
       })
         .then(() => {
-          this.received_application = true;
+          let vm = this;
+          vm.received_application = true;
+          gtag("event", "job_applied", {
+            name: vm.job.name,
+          });
           setTimeout(() => {
-            this.$router.push("https://hypd.store/");
+            vm.$router.push("https://hypd.store/");
             window.open("https://hypd.store/");
           }, 2500);
         })
@@ -189,6 +193,9 @@ export default {
           }
           let vm = this;
           vm.job = vm.jobs.find((x) => x.id === vm.$route.params.id);
+          gtag("event", "job_viewed", {
+            name: vm.job.name,
+          });
           if (vm.job == "") {
             vm.$router.push("/");
           }
