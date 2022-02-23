@@ -5,8 +5,11 @@ import router from "./router";
 import Vue3TouchEvents from "vue3-touch-events";
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-
+import VueGtag from "vue-gtag";
 const app = createApp(App);
+app.use(VueGtag, {
+  config: { id: "G-G6EP0MZDK9" }
+});
 app.use(router);
 app.use(Vue3TouchEvents);
 app.use(VueAxios, axios);
