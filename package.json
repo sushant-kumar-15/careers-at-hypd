@@ -32,7 +32,7 @@
     "prettier": "^2.2.1"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
       "node": true
     },
