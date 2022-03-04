@@ -524,7 +524,7 @@ section {
 
 .expanded_jobs_section {
   margin: 16px;
-  max-height: 1000px;
+  max-height: 10000px;
   transition: max-height 0.45s ease-in;
 }
 
